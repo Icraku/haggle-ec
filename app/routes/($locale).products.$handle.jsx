@@ -8,6 +8,7 @@ import {
   VariantSelector,
   getSelectedProductOptions,
   CartForm,
+  ShopPayButton
 } from '@shopify/hydrogen';
 import {getVariantUrl} from '~/lib/variants';
 
@@ -303,6 +304,15 @@ function AddToCartButton({analytics, children, disabled, lines, onClick}) {
             type="hidden"
             value={JSON.stringify(analytics)}
           />
+          <button
+            type="submit"
+            onClick={onClick}
+            disabled={disabled ?? fetcher.state !== 'idle'}
+          >
+            {children}
+          </button>
+          <br />
+          <br />
           <button
             type="submit"
             onClick={onClick}
